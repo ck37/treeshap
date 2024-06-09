@@ -31,6 +31,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// embed_treepath_cpp
+DataFrame embed_treepath_cpp(DataFrame data, DataFrame is_na, IntegerVector roots, IntegerVector yes, IntegerVector no, IntegerVector missing, LogicalVector is_leaf, IntegerVector feature, NumericVector split, IntegerVector decision_type, IntegerVector trees, IntegerVector depth);
+RcppExport SEXP _treeshap_embed_treepath_cpp(SEXP dataSEXP, SEXP is_naSEXP, SEXP rootsSEXP, SEXP yesSEXP, SEXP noSEXP, SEXP missingSEXP, SEXP is_leafSEXP, SEXP featureSEXP, SEXP splitSEXP, SEXP decision_typeSEXP, SEXP treesSEXP, SEXP depthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< DataFrame >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< DataFrame >::type is_na(is_naSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type roots(rootsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type yes(yesSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type no(noSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type missing(missingSEXP);
+    Rcpp::traits::input_parameter< LogicalVector >::type is_leaf(is_leafSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type feature(featureSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type split(splitSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type decision_type(decision_typeSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type trees(treesSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type depth(depthSEXP);
+    rcpp_result_gen = Rcpp::wrap(embed_treepath_cpp(data, is_na, roots, yes, no, missing, is_leaf, feature, split, decision_type, trees, depth));
+    return rcpp_result_gen;
+END_RCPP
+}
 // new_covers
 IntegerVector new_covers(DataFrame x, DataFrame is_na, IntegerVector roots, IntegerVector yes, IntegerVector no, IntegerVector missing, LogicalVector is_leaf, IntegerVector feature, NumericVector split, IntegerVector decision_type);
 RcppExport SEXP _treeshap_new_covers(SEXP xSEXP, SEXP is_naSEXP, SEXP rootsSEXP, SEXP yesSEXP, SEXP noSEXP, SEXP missingSEXP, SEXP is_leafSEXP, SEXP featureSEXP, SEXP splitSEXP, SEXP decision_typeSEXP) {
@@ -100,6 +122,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_treeshap_predict_cpp", (DL_FUNC) &_treeshap_predict_cpp, 11},
+    {"_treeshap_embed_treepath_cpp", (DL_FUNC) &_treeshap_embed_treepath_cpp, 12},
     {"_treeshap_new_covers", (DL_FUNC) &_treeshap_new_covers, 10},
     {"_treeshap_treeshap_cpp", (DL_FUNC) &_treeshap_treeshap_cpp, 13},
     {"_treeshap_treeshap_interactions_cpp", (DL_FUNC) &_treeshap_treeshap_interactions_cpp, 13},

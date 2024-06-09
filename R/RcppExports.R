@@ -5,6 +5,10 @@ predict_cpp <- function(x, is_na, roots, yes, no, missing, is_leaf, feature, spl
     .Call('_treeshap_predict_cpp', PACKAGE = 'treeshap', x, is_na, roots, yes, no, missing, is_leaf, feature, split, decision_type, value)
 }
 
+embed_treepath_cpp <- function(data, is_na, roots, yes, no, missing, is_leaf, feature, split, decision_type, trees, depth) {
+    .Call('_treeshap_embed_treepath_cpp', PACKAGE = 'treeshap', data, is_na, roots, yes, no, missing, is_leaf, feature, split, decision_type, trees, depth)
+}
+
 new_covers <- function(x, is_na, roots, yes, no, missing, is_leaf, feature, split, decision_type) {
     .Call('_treeshap_new_covers', PACKAGE = 'treeshap', x, is_na, roots, yes, no, missing, is_leaf, feature, split, decision_type)
 }
