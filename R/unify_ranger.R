@@ -42,7 +42,7 @@ ranger.unify <- function(rf_model, data) {
   x <- lapply(1:n, function(tree) {
     tree_data <- data.table::as.data.table(ranger::treeInfo(rf_model, tree = tree))
     # Fix for probability forests
-    if (rf$treetype == "Probability estimation") {
+    if (rf_model$treetype == "Probability estimation") {
       data.table::setnames(tree_data, "pred.1", "prediction")
     }
     tree_data[, c("nodeID",  "leftChild", "rightChild", "splitvarName", "splitval", "prediction")]
